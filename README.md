@@ -76,52 +76,76 @@ The system continuously scans the surrounding area by rotating the ultrasonic se
 
 ---
 
-# Working Principle
+## Working Principle
 
-1. The servo motor rotates from 0° to 180°.
-2. The ultrasonic sensor measures object distance.
-3. Distance data is displayed on the OLED screen.
-4. If an object is detected within 20 cm:
-   - OLED displays "OBJECT!"
-   - Buzzer turns ON
-5. The servo sweeps back from 180° to 0° continuously.
+The Radar System continuously scans its surroundings by rotating an ultrasonic sensor using a servo motor. The sensor sends ultrasonic waves and waits for the reflected echo from nearby objects.
 
----
-
-# Software Libraries Used
-
-```cpp
-#include <Servo.h>
-#include <Arduino.h>
-#include <U8g2lib.h>
-```
+1. The servo motor rotates the ultrasonic sensor from **0° to 180°**.
+2. At each angle, the ultrasonic sensor transmits an ultrasonic pulse.
+3. When the pulse hits an object, it reflects back to the sensor.
+4. The sensor measures the time taken for the echo to return.
+5. The microcontroller calculates the distance using the echo time.
+6. The measured distance and current scanning angle are displayed on the OLED screen.
+7. If an object is detected within **20 cm**, the OLED displays **"OBJECT!"** and the buzzer is activated.
+8. After reaching 180°, the servo rotates back to 0° and repeats the scanning process continuously.
 
 ---
 
-## DistanceFormula
+## Software Libraries Used
 
-Calculates object distance using ultrasonic sensor echo timing.
+### Servo Library (`Servo.h`)
+This library is used to control the SG90 servo motor. It allows the microcontroller to rotate the ultrasonic sensor smoothly between 0° and 180° for radar scanning.
 
-Formula Used:
+### Arduino Core Library (`Arduino.h`)
+This is the standard Arduino library that provides basic functions such as:
+- GPIO control (`pinMode`, `digitalWrite`)
+- Timing functions (`delay`, `delayMicroseconds`)
+- Serial communication (`Serial.print`)
 
-Distance = Time × Speed of Sound / 2
+### U8g2 Graphics Library (`U8g2lib.h`)
+This library is used to interface with the SH1106 OLED display. It enables displaying:
+- Radar title
+- Servo angle
+- Object distance
+- Detection warnings
+
+---
+
+## Distance Calculation
+
+The ultrasonic sensor measures the time taken for a sound wave to travel to an object and return back to the sensor.
+
+### Formula
+
+Distance = (Time × Speed of Sound) / 2
 
 Where:
 
-- \( d \) = Distance
-- \( t \) = Echo Time
-- \( v \) = Speed of Sound
+- **Distance** = Distance between sensor and object
+- **Time** = Time taken by the echo signal to return
+- **Speed of Sound** = Approximately 343 m/s
+
+The result is divided by 2 because the sound wave travels to the object and then returns back to the sensor.
 
 ---
 
 ## displayData
 
-Displays:
-- Current servo angle
-- Measured distance
-- Object detection warning
+The `displayData()` function is responsible for updating the OLED display and Serial Monitor.
 
-Also prints data to Serial Monitor.
+### Functions Performed
+
+- Displays the current servo angle.
+- Displays the measured object distance.
+- Shows an **"OBJECT!"** warning when an obstacle is detected within 20 cm.
+- Sends angle and distance information to the Serial Monitor for debugging and monitoring.
+
+### Example Output
+
+```text
+Angle: 90
+Distance: 15 cm
+OBJECT!
 
 ---
 

@@ -98,30 +98,6 @@ The system continuously scans the surrounding area by rotating the ultrasonic se
 
 ---
 
-# Functions Used
-
-## setup()
-
-Initializes:
-- Serial communication
-- OLED display
-- Servo motor
-- Sensor pins
-- Buzzer
-
----
-
-## loop()
-
-Controls radar scanning:
-- Left to right sweep
-- Right to left sweep
-- Distance measurement
-- OLED update
-- Buzzer alert
-
----
-
 ## getDistance()
 
 Calculates object distance using ultrasonic sensor echo timing.
@@ -129,14 +105,6 @@ Calculates object distance using ultrasonic sensor echo timing.
 Formula Used:
 
 Distance = Time × Speed of Sound / 2
-
----
-
-# Distance Calculation Formula
-
-Distance measurement is based on ultrasonic wave travel time.
-
-:contentReference[oaicite:0]{index=0}
 
 Where:
 

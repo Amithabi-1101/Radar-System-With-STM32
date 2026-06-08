@@ -98,7 +98,7 @@ The system continuously scans the surrounding area by rotating the ultrasonic se
 
 ---
 
-## getDistance()
+## DistanceFormula
 
 Calculates object distance using ultrasonic sensor echo timing.
 
@@ -114,7 +114,7 @@ Where:
 
 ---
 
-## displayData()
+## displayData
 
 Displays:
 - Current servo angle
@@ -125,7 +125,7 @@ Also prints data to Serial Monitor.
 
 ---
 
-## buzzerAlert()
+## buzzerAlert
 
 Activates buzzer when object distance is less than 20 cm.
 

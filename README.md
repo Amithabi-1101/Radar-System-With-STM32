@@ -147,40 +147,54 @@ Angle: 90
 Distance: 15 cm
 OBJECT!
 
----
+```
+## buzzerAlert()
 
-## buzzerAlert
+The `buzzerAlert()` function provides an audible warning when an object is detected within a predefined distance range.
 
-Activates buzzer when object distance is less than 20 cm.
+### Working
+
+- If the measured distance is less than **20 cm**, the buzzer turns **ON**.
+- If the measured distance is greater than or equal to **20 cm**, the buzzer turns **OFF**.
+
+This alert mechanism helps users quickly identify nearby obstacles without constantly monitoring the OLED display.
 
 ---
 
 # Project Output
 
 ## Hardware Setup
+
 ![Hardware Setup](images/hardware.jpg)
+
+The complete radar system consists of an ultrasonic sensor mounted on a servo motor, an OLED display for real-time data visualization, and a buzzer for obstacle alerts.
 
 ---
 
 ## OLED Output
+
 ![OLED Output](images/output.png)
+
+The OLED display shows:
+- Current scanning angle
+- Measured distance
+- Object detection warning message
 
 ---
 
 ## Serial Monitor Output
+
 ![Serial Monitor](images/serial.png)
 
----
+The Serial Monitor continuously displays real-time radar data for debugging and monitoring purposes.
 
-# Example Serial Output
+### Example Serial Output
 
 ```text
-Angle: 45 | Distance: 18 cm
-Angle: 48 | Distance: 17 cm
-Angle: 51 | Distance: 15 cm
+Angle: 45° | Distance: 18 cm
+Angle: 48° | Distance: 17 cm
+Angle: 51° | Distance: 15 cm
 ```
-
----
 
 # Applications
 

@@ -148,7 +148,7 @@ Distance: 15 cm
 OBJECT!
 
 ```
-## buzzerAlert()
+## buzzerAlert
 
 The `buzzerAlert()` function provides an audible warning when an object is detected within a predefined distance range.
 

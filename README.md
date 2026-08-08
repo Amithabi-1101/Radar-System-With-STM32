@@ -1,6 +1,6 @@
 # Radar System With STM32
 
-![Project Hardware](images/hardware.jpg)
+![Project Hardware](radar%20images.jpg)
 
 An intelligent radar scanning system built using STM32/ESP-based microcontroller, ultrasonic sensor, servo motor, OLED display, and buzzer alert system.
 

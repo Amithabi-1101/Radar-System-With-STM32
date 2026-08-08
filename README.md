@@ -217,9 +217,6 @@ Angle: 51° | Distance: 15 cm
 
 ---
 
-
----
-
 # License
 
 This project is licensed under the Apache License 2.0.
